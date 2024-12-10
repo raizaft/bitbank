@@ -19,14 +19,15 @@ public class CorrentistaRepository {
         return repositorio.get(id);
     }
 
-    public void save(Correntista correntista) {
+    public Correntista save(Correntista correntista) {
         Integer id = null;
         id = (correntista.getId() == null) ? this.getMaxId() + 1 : correntista.getId();
         correntista.setId(id);
         repositorio.put(id, correntista);
+        return correntista;
     }
 
-    public static List<Correntista> findAll() {
+    public List<Correntista> findAll() {
         List<Correntista> correntistas = repositorio.values().stream().collect(Collectors.toList());
         return correntistas;
     }

@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 public class Conta implements Serializable {
@@ -16,6 +17,7 @@ public class Conta implements Serializable {
 
     private String numero;
 
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date data;
 
     private Set<Transacao> transacoes = new HashSet<Transacao>();
